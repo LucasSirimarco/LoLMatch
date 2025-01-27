@@ -1,0 +1,227 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+body{
+  background:linear-gradient(90deg, rgb(0, 60, 85) 0%, rgb(17, 49, 63) 50%); 
+  height: 100vh;
+
+}
+.loginContainer{
+        padding: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        position: absolute;
+        font-family: "Roboto", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale; 
+}
+
+.formContainer{
+  padding: 25px;
+  width: 500px;
+    background: antiquewhite;
+    border: 1px solid rgb(48, 65, 97);
+    border-radius: 10px;
+} 
+input {
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+  input:hover{
+    background:rgb(211, 221, 215);
+  }
+  input:focus{
+    background:rgb(196, 221, 224);
+  }
+  
+  #contactForm{
+    position: relative;
+    top: 100px;
+    z-index: 1;
+    background: bisque;
+    width: 400px;
+    margin: 0 auto 100px;
+    padding: 45px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    border-radius: 5px;
+  }
+  .formuElements{
+    margin: 5px 0 5px 0;
+  }
+  .pe{
+    color: #222;
+    font-weight: 700;
+    margin: 5px;
+  }
+  .boton{
+        font-family: "Roboto", sans-serif;
+        text-transform: uppercase;
+        outline: 0;
+        background: rgb(0, 60, 85);
+        width: auto;
+        border: 0;
+        padding: 15px;
+        color: #FFFFFF;
+        font-size: 14px;
+        -webkit-transition: all 0.3 ease;
+        transition: all 0.3 ease;
+        cursor: pointer;
+        margin-top: 15px;
+  }.boton:hover{
+        background-color: rgb(226, 226, 226);
+        color: #000;
+  }
+
+  .advertencia{
+        text-decoration: none;
+        color:#cf3434;
+        border: none;
+        padding: 15px 32px;
+        text-align: center;
+        display: inline-block;
+        font-size: 16px;
+        font-weight: 800;
+        border-radius: 5%;
+        cursor: pointer;
+        user-select: none;
+        display: none;
+  }.advertencia:hover {
+        text-shadow: rgb(255, 185, 185) 2px 2px 5px;
+  }
+  
+  .formulario__grupo-input{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  .formulario__input{
+    width: 100%;
+  }
+  
+  .labelForm{
+    display: block;
+    font-weight: 900;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .formulario__input-error_pass{
+    font-size: 14px;
+    margin-bottom: 0;
+    display: none;
+    color: #fd6d6d;
+    font-weight: 700;
+  }
+  .formulario__input-error_user{
+    font-size: 14px;
+    margin-bottom: 0;
+    display: none;
+    color: #fd6d6d;
+    font-weight: 700;
+  }
+  .formulario__input-error-activo{
+    display: block;
+  }
+  
+  .formulario__validacion-estado_user{
+    position: absolute;
+    right: 10px;
+    bottom: 15px;
+    z-index: 100px;
+    font-size: 16px;
+    opacity: 0;
+    color: #fd6d6d;
+  }
+  .formulario__validacion-estado_pass{
+    position: absolute;
+    right: 10px;
+    bottom: 15px;
+    z-index: 100px;
+    font-size: 16px;
+    opacity: 0;
+    color: #fd6d6d;
+  }
+  .sessionMaintenance{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 16px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin: 20px 0px 20px 0px ;
+    font-weight: 600;
+  }
+  .labelSession{
+    cursor: pointer;
+    width: 90%;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .labelcheckbox{
+    display: flex;
+    width: 20px;
+    height: 20px;
+    margin-right: 20px;
+  }
+
+  .advertenciaLogin{
+    height: 45px;
+    line-height: 45px;
+    background-color: #fca0a0;
+    color: #444;
+    padding: 0 15px;
+    margin: 0 15px;
+    border-radius: 3px;
+    display: none;
+  }
+  .advertenciaLogin-activo{
+    display: block;
+  }
+  
+  .formulario__mensaje-exito{
+    height: 45px;
+    line-height: 45px;
+    background-color: #a8fca0;
+    padding: 0 15px;
+    border-radius: 3px;
+    color: #444;
+    display: none;
+  }
+  .formulario__mensaje-exito__activo{
+    display: block;
+  }
+  
+  /* Input con error */
+.input-error {
+  background-color: #ffd1d1; /* Fondo claro para indicar error */
+}
+.input-error::placeholder {
+  color: #333;
+  font-weight: 800;
+}
+
+/* Mensaje de error */
+.formulario__input-error-activo {
+  display: block;
+  font-size: 12px;
+  color: #ec6363;
+  margin-top: 5px;
+}
+
+.input-error:focus {
+  background-color: #ffe5e5;
+  border-color: #dba3a3;
+}
+

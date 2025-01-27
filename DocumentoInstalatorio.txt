@@ -1,0 +1,63 @@
+1. Requisitos previos
+
+a) Node.js: Asegúrate de tener Node.js instalado en tu máquina. Descárgalo desde nodejs.org.
+b) Python: La parte del backend utiliza Python. Descárgalo desde python.org.
+c) PostgreSQL: Asegúrate de tener PostgreSQL instalado para manejar la base de datos. Descárgalo desde postgresql.org.
+
+2. Instalación del frontend (React)
+
+a) Crear un entorno de desarrollo
+Clona el repositorio o crea una carpeta para tu proyecto.
+En la raíz de tu proyecto, navega a la carpeta del frontend:
+cd frontend
+b) Instalar dependencias
+Ejecuta el siguiente comando para instalar las dependencias necesarias:
+npm install
+c) Dependencias utilizadas
+
+npm install react-router-dom
+npm install react-icons
+npm install universal-cookie
+npm install node_modules
+
+3. Instalación del backend (Flask)
+
+a) Crear un entorno virtual
+Navega a la carpeta del backend y crea un entorno virtual:
+python -m venv venv
+venv\Scripts\activate
+
+b) Instalar dependencias
+pip install 
+
+c) Dependencias utilizadas
+pip install flask
+pip install flask-cors
+pip install psycopg2
+pip install python-dotenv
+
+4. Configuración de la base de datos
+Instala PostgreSQL y crea una base de datos para la aplicación.
+Configura las credenciales de la base de datos en un archivo .env (en la raíz del backend). 
+
+DB_HOST=localhost
+DB_NAME=tu_base_de_datos
+DB_USER=tu_usuario
+DB_PASSWORD=tu_contraseña
+DB_PORT=5432
+
+5. Inicio de la aplicación
+a) Backend
+Asegúrate de que el entorno virtual esté activo.
+Ejecuta el servidor Flask:
+python nombre_del_archivo.py o darle run
+
+b) Frontend
+Ve a la carpeta del frontend:
+cd frontend
+Inicia el servidor React:
+npm start
+
+7. Verificación
+Asegúrate de que el backend esté corriendo en el puerto correspondiente.
+Accede al frontend en http://localhost:3000.

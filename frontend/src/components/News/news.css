@@ -1,0 +1,124 @@
+/* News Section Styles */
+.news-section {
+    display: grid;
+    grid-template-areas: 
+      "main aside"
+      "main aside";
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .news-main {
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .news-item {
+    background: #0b4b3b;
+    color: #2be0b0;;
+    padding: 1.5rem;
+    border-radius: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .news-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .news-item h3 {
+    font-size: 1.5rem;
+    color: #00dba4;;
+    margin-bottom: 0.75rem;
+  }
+  
+  .news-item p {
+    font-size: 1rem;
+    color: #4bcead;;
+    line-height: 1.5;
+  }
+  
+  .news-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 1rem;
+  }
+  
+  .news-aside {
+    grid-area: aside;
+    background: #ffffff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .news-aside h4 {
+    font-size: 1.25rem;
+    color: #444;
+    margin-bottom: 1rem;
+  }
+  
+  .news-aside ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .news-aside li {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  .news-aside li span {
+    margin-right: 0.5rem;
+    color: #888;
+  }
+  
+  .carousel {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    margin-top: 1.5rem;
+    border-radius: 10px;
+  }
+  
+  .carousel img {
+    width: 100%;
+    height: auto;
+    flex-shrink: 0;
+    border-radius: 10px;
+  }
+  
+  .carousel-controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+  }
+  
+  .carousel-controls button {
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  
+  .carousel-controls button:hover {
+    background: rgba(0, 0, 0, 0.8);
+  }
+  

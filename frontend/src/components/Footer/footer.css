@@ -1,0 +1,78 @@
+/* Estilo general */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #f0f0f0;
+}
+
+/* Footer */
+.footer {
+  background-color: #1c1c2b;
+  color: white;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.footer-logo h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #e5c07b;
+}
+
+.footer-logo p {
+  font-size: 1rem;
+  color: #a9a9a9;
+}
+
+.footer-socials {
+  margin: 20px 0;
+}
+
+.social-link {
+  color: #e5c07b;
+  font-size: 2rem;
+  margin: 0 15px;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.social-link:hover {
+  transform: scale(1.2);
+  color: #f39c12;
+}
+
+.footer-rights {
+  margin-top: 20px;
+}
+
+.footer-rights p {
+  font-size: 0.9rem;
+  color: #a9a9a9;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-logo h1 {
+    font-size: 1.6rem;
+  }
+
+  .footer-logo p {
+    font-size: 0.85rem;
+  }
+
+  .footer-socials {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px 0;
+  }
+
+  .social-link {
+    font-size: 1.8rem;
+  }
+}

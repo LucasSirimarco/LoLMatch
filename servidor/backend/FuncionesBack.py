@@ -12,6 +12,8 @@ def sign_in(objeto):
     loginResponse = CONEXION_LOGIN.sign_in(mail,pwd)
 
     if(loginResponse):
+        print("loginResponseloginResponseloginResponseloginResponseloginResponse")
+        print(loginResponse)
         return loginResponse
     
     return False

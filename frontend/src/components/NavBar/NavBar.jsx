@@ -1,6 +1,8 @@
 import "./navBar.css";
 import { Link } from "react-router-dom";
 import Footer from "../Footer/Footer";
+import PreHome from "../PreHome/PreHome";
+
 
 const NavBar = () => {
   return (
@@ -19,6 +21,7 @@ const NavBar = () => {
         </Link>
       </nav>
     </header>
+    <PreHome />
     <Footer />
 
     </div>

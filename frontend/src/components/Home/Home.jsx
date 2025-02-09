@@ -5,26 +5,28 @@ import "./home.css";
 import { useNavigate } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import News from "../News/News";
+import NavHome from "../NavHome/NavBar";
+import AsideLeft from "../AsideLeft/AsideLeft";
+import Section from "../Section/Section";
+import AsideRigth from "../AsideRigth/AsideRigth";
+import Card from "../Card/Card";
 
 function Home() {
   const [username, setUsername] = useState("");
   const navigate = useNavigate();
-
-  // Función para cerrar sesión
   const cerrarSesion = () => {
     const cookies = new Cookies();
     cookies.remove("Token", { path: "/" });
     navigate("/");
-  };
-
+  }
   useEffect(() => {
     const cookies = new Cookies();
     const token = cookies.get("Token");
-
     if (token) {
       try {
         const decodedToken = jwtDecode(token);
-        setUsername(decodedToken.Username);
+        console.log("Codigo Acces DEcodeadoo: " +decodedToken);
+        setUsername(decodedToken.username);
       } catch (error) {
         console.error("Error al decodificar el token", error);
         navigate("/login");
@@ -34,55 +36,60 @@ function Home() {
     }
   }, [navigate]);
 
+
+const sendRefreshToken = async () => {
+  try {
+    const response = await fetch("http://localhost:5000/api/refresh-token", {
+      method: "POST",
+      credentials: "include",
+    });
+
+    const data = await response.json();
+    console.log(data.message);  // Muestra el mensaje del backend
+    
+    if (response.ok) {
+      console.log("Refresh token guardado correctamente");
+    } else {
+      console.log("Hubo un error al guardar el refresh token");
+    }
+  } catch (error) {
+    console.error("Error al enviar el refresh token:", error);
+  }
+};
+
+
   return (
     <div className="home-container">
-      <nav className="navbar">
-        <h1 className="logo">LoL Match</h1>
-        <ul className="nav-links">
-          <li><button className="logout-menu-btn" onClick={cerrarSesion}>Stremear</button></li>
-          <li><button className="logout-menu-btn" onClick={cerrarSesion}>Buscar Jugadores</button></li>
-          <li><button className="logout-menu-btn" onClick={cerrarSesion}>Buscar Teams</button></li>
-          <li><button className="logout-menu-btn" onClick={cerrarSesion}>Crear Teams</button></li>
-          <li><button className="logout-menu-btn" onClick={cerrarSesion}>Explorar</button></li>
-          <li><button className="logout-menu-btn" onClick={cerrarSesion}>Mis Estadisticas</button></li>
-        </ul>
-        <div className="user-section">
-  <div className="dropdown">
-    <button className="dropdown-btn">
-      {username ? `Hola, ${username}!` : "Bienvenido, Invitado!"}
-      <span className="dropdown-icon">▼</span>
-    </button>
-    <ul className="dropdown-menu">
-      <li><button className="logout-menu-btn" onClick={cerrarSesion}>Perfil</button></li>
-      <li><button className="logout-menu-btn" onClick={cerrarSesion}>Configuracion</button></li>
-      <li><button className="logout-menu-btn" onClick={cerrarSesion}>Ayuda</button></li>
-      <li><button className="logout-menu-btn" onClick={cerrarSesion}>Soporte Tecnico</button></li>
-      <li><button className="logout-menu-btn cerrarSession" onClick={cerrarSesion}>Cerrar sesión</button></li>
-    </ul>
-  </div>
-</div>
-
-      </nav>
-
-      <div className="hero">
-        <div className="content">
-          <h2>Bienvenido a LoL Match</h2>
-          <p>
-            Únete a nuestra comunidad y encuentra compañeros de equipo para clasificar juntos 
-            o un partner perfecto para tus aventuras en la Grieta.
-          </p>
-        </div>
-        <div className="hero-image">
-          <img
-            src="https://static.leagueoflegends.com/sites/default/files/styles/wide_medium/public/upload/lol_social_2021_0.jpg"
-            alt="League of Legends"
+      <NavHome username={username} cerrarSesion={cerrarSesion} />
+      <div className="preHome">
+        <AsideLeft />
+        <Section />
+        <AsideRigth />
+      </div>
+      <div className="card-container">
+        <h3> Encuentra a tu Compañero/a ideal</h3>
+        <div className="card-container-slide">
+          <h3>&#8592;</h3>
+          <Card
+            player={{
+              profilePic: "https://example.com/profile.jpg",
+              name: "Faker",
+              age: 27,
+              rank: "Challenger",
+              mainChamps: ["Zed", "LeBlanc", "Ahri"],
+              lanes: ["Mid", "Top"],
+              server: "KR"
+            }}
           />
+          <h3>&#8594;</h3>
         </div>
       </div>
       <News />
       <Footer />
+      {/* Botón para enviar el refresh token */}
+      <button onClick={sendRefreshToken}>Enviar Refresh Token</button>
     </div>
-    
+
   );
 }
 

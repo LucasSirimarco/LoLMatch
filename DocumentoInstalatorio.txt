@@ -19,6 +19,8 @@ npm install react-router-dom
 npm install react-icons
 npm install universal-cookie
 npm install node_modules
+npm install lucide-react
+
 
 3. Instalación del backend (Flask)
 

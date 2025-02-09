@@ -111,6 +111,21 @@ body {
       max-width: 100%;
     }
   }
+
+.card-container{
+  background: #334155;
+  width: 100%;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}  
+.card-container-slide{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 /* User Section */
 .user-section {
     position: relative;

@@ -5,6 +5,7 @@ import Register from './components/Register/Register'
 import Home from './components/Home/Home'
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import VistaPlayer from './components/VistaPlayer/VistaPlayer'
 
 function App() {
   return (
@@ -13,13 +14,8 @@ function App() {
         <Route path="/" element={<NavBar />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        
-        {/* Ruta protegida para Home */}
-        <Route path="/home" element={
-
-            <Home />
-
-        } />
+        <Route path="/vistaPlayer" element={<VistaPlayer />} />
+        <Route path="/home" element={<Home />} />
       </Routes>
     </BrowserRouter>
   );

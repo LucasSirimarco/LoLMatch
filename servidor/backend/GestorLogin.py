@@ -42,8 +42,6 @@ class GestorLogin:
 
             CONEXION_DB.iniciarConexion('localhost','postgres','123CrackeN','postgres',5432)
 
-            CONEXION_DB.iniciarConexion('localhost','postgres','123CrackeN','postgres',5432)
-
             CONEXION_DB.ejecutar("SELECT email FROM login WHERE email LIKE '{}'".format(mail))
             retorno = CONEXION_DB.mostrarResultados()
             print(retorno)
@@ -77,7 +75,7 @@ class GestorLogin:
                 raise Exception("No encontré el mail solicitado en la base de datos")
 
             CONEXION_DB.ejecutar("UPDATE login SET refreshtoken='{}' WHERE email='{}'".format(refreshToken,mail))
-            # CONEXION_DB.ejecutar("INSERT INTO login (refreshToken, pwd) VALUES ('{}','{}')".format(mail,pwd))
+            CONEXION_DB.ejecutar("INSERT INTO login (refreshToken, pwd) VALUES ('{}','{}')".format(mail,refreshToken))
             CONEXION_DB.commit()
 
             respuesta = True

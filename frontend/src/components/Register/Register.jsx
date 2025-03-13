@@ -32,7 +32,7 @@ function Register() {
 
     setErrors(newErrors);
     console.log(newErrors);
-    
+
     return Object.keys(newErrors).length === 0; // Retorna true si no hay errores
   };
 
@@ -71,8 +71,8 @@ function Register() {
   };
 
   return (
-    <div className="loginContainer">
-      <form className="formContainer" onSubmit={enviarRegistro}>
+    <div className="register-container">
+      <form className="formRegister" onSubmit={enviarRegistro}>
         <div>
           <label className="labelForm">Usuario</label>
           <input

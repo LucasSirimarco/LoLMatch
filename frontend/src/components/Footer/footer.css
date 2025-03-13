@@ -1,7 +1,6 @@
 /* Estilo general */
 body {
   margin: 0;
-  font-family: 'Arial', sans-serif;
   background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
   color: #f0f0f0;
 }
@@ -34,14 +33,14 @@ body {
   margin: 20px 0;
 }
 
-.social-link {
+.social-link-footer {
   color: #e5c07b;
   font-size: 2rem;
   margin: 0 15px;
   transition: transform 0.3s, color 0.3s;
 }
 
-.social-link:hover {
+.social-link-footer:hover {
   transform: scale(1.2);
   color: #f39c12;
 }
@@ -72,7 +71,7 @@ body {
     margin: 10px 0;
   }
 
-  .social-link {
+  .social-link-footer {
     font-size: 1.8rem;
   }
 }

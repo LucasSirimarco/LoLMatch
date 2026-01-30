@@ -24,7 +24,7 @@ function Register() {
     if (!password.trim()) newErrors.password = "La contraseña es obligatoria.";
     else if (password.length < 6)
       newErrors.password = "La contraseña debe tener al menos 6 caracteres.";
-    if (rewpassword !== password)
+    if (rewpassword !== password) 
       newErrors.rewpassword = "Las contraseñas no coinciden.";
     if (!mail.trim() || !emailRegex.test(mail))
       newErrors.mail = "Por favor ingresa un correo válido.";

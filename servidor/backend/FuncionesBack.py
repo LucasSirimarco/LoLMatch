@@ -6,10 +6,10 @@ CONEXION_LOGIN = GestorLogin()
 def sign_in(objeto):
     print("DEBUGER +++++++++++++")
     print(objeto)
-    mail = objeto["mail"]
+    email = objeto["email"]
     pwd = objeto["password"]
 
-    loginResponse = CONEXION_LOGIN.sign_in(mail,pwd)
+    loginResponse = CONEXION_LOGIN.sign_in(email,pwd)
 
     if(loginResponse):
         print("loginResponseloginResponseloginResponseloginResponseloginResponse")
@@ -21,18 +21,19 @@ def sign_in(objeto):
 def sign_up(objeto):
 
     print(objeto)
-    mail = objeto["email"]
+    email = objeto["email"]
     pwd = objeto["pwd"]
     username = objeto["username"]
+    fechaNac = objeto["fechaNac"]
 
-    return CONEXION_LOGIN.sign_up(mail,pwd,username)
+    return CONEXION_LOGIN.sign_up(email,pwd,username,fechaNac)
 
 def almacenar_refresh_token(objetoUsuario, refreshToken):
 
-    mail = objetoUsuario["User"]
+    email = objetoUsuario["User"]
     refreshToken = objetoUsuario["Token"]
 
-    return CONEXION_LOGIN.agregarRefreshToken(mail,refreshToken)
+    return CONEXION_LOGIN.agregarRefreshToken(email,refreshToken)
 
 
 

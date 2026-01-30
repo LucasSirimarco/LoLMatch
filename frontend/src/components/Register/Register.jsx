@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./register.css";
+import { useNavigate } from 'react-router-dom';
 
 function Register() {
   const [user, setUser] = useState("");
@@ -8,10 +9,12 @@ function Register() {
   const [mail, setMail] = useState("");
   const [nombres, setNombres] = useState("");
   const [apellido, setApellido] = useState("");
-  const [edad, setEdad] = useState("");
+  const [fechaNac, setFechaNac] = useState("");
+  
 
   const [errors, setErrors] = useState({});
   const [successMessage, setSuccessMessage] = useState("");
+  const navigate = useNavigate();
 
   const validateForm = () => {
     const newErrors = {};
@@ -27,8 +30,8 @@ function Register() {
       newErrors.mail = "Por favor ingresa un correo válido.";
     if (!nombres.trim()) newErrors.nombres = "El nombre es obligatorio.";
     if (!apellido.trim()) newErrors.apellido = "El apellido es obligatorio.";
-    if (!edad.trim() || isNaN(edad) || edad <= 0)
-      newErrors.edad = "Por favor ingresa una edad válida.";
+   // if (!fechaNac.trim() || isNaN(fechaNac) || fechaNac <= 0)
+    //  newErrors.fechaNac = "Por favor ingresa una fechaNac válida.";
 
     setErrors(newErrors);
     console.log(newErrors);
@@ -40,7 +43,7 @@ function Register() {
     e.preventDefault();
     if (!validateForm()) return;
 
-    fetch("http://127.0.0.1:4010/registration", {
+    fetch("http://127.0.0.1:5000/registration", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -48,6 +51,7 @@ function Register() {
       body: JSON.stringify({
         username: user,
         pwd: password,
+        fechaNac: new Date(fechaNac),
         email: mail,
       }),
     })
@@ -61,10 +65,12 @@ function Register() {
         setMail("");
         setNombres("");
         setApellido("");
-        setEdad("");
+        setFechaNac("");
         setErrors({});
+        navigate("/login");
       })
-      .catch(() => {
+      .catch((e) => {
+        console.log(e);
         setSuccessMessage("");
         alert("Error al registrar. Intenta nuevamente.");
       });
@@ -142,15 +148,15 @@ function Register() {
           {errors.apellido && <p className="advertencia">{errors.apellido}</p>}
         </div>
         <div>
-          <label className="labelForm">Edad</label>
+          <label className="labelForm">Fecha de Nacimiento</label>
           <input
-            type="text"
-            placeholder={errors.edad || "Edad"}
-            value={edad}
-            onChange={(e) => setEdad(e.target.value)}
-            className={errors.edad ? "input-error" : ""}
+            type="date"
+            placeholder={errors.fechaNac || "Fecha de Nacimiento"}
+            value={fechaNac}
+            onChange={(e) => setFechaNac(e.target.value)}
+            className={errors.fechaNac ? "input-error" : ""}
           />
-          {errors.edad && <p className="advertencia">{errors.edad}</p>}
+          {errors.fechaNac && <p className="advertencia">{errors.fechaNac}</p>}
         </div>
         {successMessage && (
           <p className="formulario__mensaje-exito__activo">{successMessage}</p>
@@ -158,6 +164,9 @@ function Register() {
         <button className="boton" type="submit">
           Registrarse
         </button>
+          <div>
+            <p className="message">¿Ya tiene una cuenta? <a href="login" id="crearCuenta">Logearse</a></p>
+          </div>
       </form>
     </div>
   );

@@ -37,6 +37,9 @@ pip install flask
 pip install flask-cors
 pip install psycopg2
 pip install python-dotenv
+pip install PyJWT
+pip install flask-jwt-extended
+
 
 4. Configuración de la base de datos
 Instala PostgreSQL y crea una base de datos para la aplicación.
@@ -47,6 +50,29 @@ DB_NAME=tu_base_de_datos
 DB_USER=tu_usuario
 DB_PASSWORD=tu_contraseña
 DB_PORT=5432
+
+Crear Tablas: Ejecuta este codigo en la base de datos para crear las tablas:
+"
+CREATE TABLE IF NOT EXISTS usuarios (
+            id SERIAL PRIMARY KEY,
+            username VARCHAR(255) NOT NULL UNIQUE,
+            email VARCHAR(255) NOT NULL UNIQUE,
+            pwd TEXT NOT NULL,
+            fecha_nacimiento DATE NOT NULL,
+            nacionalidad INT,
+            servidor INT,
+            instagram VARCHAR(255),
+            discord VARCHAR(255),
+            twitch VARCHAR(255),
+            twitter VARCHAR(255),
+            reddit VARCHAR(255),
+            facebook VARCHAR(255),
+            imagen_perfil BYTEA,
+            refreshtoken VARCHAR(255)
+        )
+        " 
+        
+
 
 5. Inicio de la aplicación
 a) Backend

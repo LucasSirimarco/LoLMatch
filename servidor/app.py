@@ -33,14 +33,14 @@ def leerObjetoLogin():
     respuestaLogin = FuncionesBack.sign_in(jsonObjeto)
     if respuestaLogin: 
         print("Usuario Encontrado")
-        access_token = create_access_token(identity=jsonObjeto["mail"],additional_claims={"username": respuestaLogin["Username"]})
-        refresh_token = create_refresh_token(identity=jsonObjeto["mail"])
+        access_token = create_access_token(identity=jsonObjeto["email"],additional_claims={"username": respuestaLogin["Username"]})
+        refresh_token = create_refresh_token(identity=jsonObjeto["email"])
         print("DEBUG access token: " + access_token)
         print("DEBUG refresh token: " + refresh_token)
         response = make_response(jsonify({
             "message": "Login exitoso",
             "access_token": access_token
-        }))
+        }))   
         print("Con el Make_response")
         print(response)
         print(response.headers)

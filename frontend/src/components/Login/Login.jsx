@@ -9,7 +9,7 @@ import { jwtDecode } from "jwt-decode";
 function Login() {
 
   const navigate = useNavigate();
-  const [mail, setMail] = useState('');
+  const [email, setMail] = useState('');
   const [password, setPassword] = useState('');
   const [boleanToken, setBoleanToken] = useState(false);
   const cookies = new Cookies();
@@ -21,7 +21,7 @@ function Login() {
 
   const enviarFormulario = (e) => {
     e.preventDefault();
-    if (!validateEmail(mail)) {
+    if (!validateEmail(email)) {
       console.log('El email no es válido.');
       alert('El email no es válido.')
       return;
@@ -36,7 +36,7 @@ function Login() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ mail, password }),
+      body: JSON.stringify({ email, password }),
       credentials: "include"
     })
       .then((res) => res.json())
@@ -79,7 +79,7 @@ function Login() {
           <div>
             <label className="labelForm">Email</label>
             <div>
-              <input type="text" placeholder='Email' value={mail} onChange={e => setMail(e.target.value)} />
+              <input type="text" placeholder='Email' value={email} onChange={e => setMail(e.target.value)} />
             </div>
             <p className="advertencia">Email Incorrecto</p>
           </div>

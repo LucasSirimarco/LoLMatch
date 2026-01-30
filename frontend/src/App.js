@@ -3,7 +3,8 @@ import Login from './components/Login/Login'
 import NavBar from './components/NavBar/NavBar'
 import Register from './components/Register/Register'
 import Home from './components/Home/Home'
-import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+import Stremear from './components/Stremear/Stremear';
+//import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import VistaPlayer from './components/VistaPlayer/VistaPlayer'
 
@@ -16,6 +17,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/vistaPlayer" element={<VistaPlayer />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/stremear" element={<Stremear />} />
       </Routes>
     </BrowserRouter>
   );
